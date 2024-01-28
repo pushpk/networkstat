@@ -1,15 +1,15 @@
 import _ from "lodash";
 import React from "react";
-import PropTypes from "prop-types";
-import "./ClientMatterSource.css";
 import {
-  TableRow,
-  TableHeaderCell,
-  TableHeader,
-  TableCell,
-  TableBody,
   Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
 } from "semantic-ui-react";
+import jsonData from "../data/data.json";
+import "./ClientMatterSource.css";
 
 const clientMatterSourceData = [
   {
@@ -54,7 +54,7 @@ function clientMatterSourceReducer(state, action) {
   }
 }
 
-function ClientMatterSource() {
+function ClientMatterSource({ selectedId }) {
   const [state, dispatch] = React.useReducer(clientMatterSourceReducer, {
     column: null,
     data: clientMatterSourceData,
@@ -63,47 +63,55 @@ function ClientMatterSource() {
   const { column, data, direction } = state;
 
   return (
-    <Table sortable celled fixed compact>
-      <TableHeader>
-        <TableRow>
-          <TableHeaderCell
-            width={10}
-            sorted={column === "path" ? direction : null}
-            onClick={() => dispatch({ type: "CHANGE_SORT", column: "path" })}
-          >
-            Path
-          </TableHeaderCell>
-          <TableHeaderCell
-            sorted={column === "office" ? direction : null}
-            onClick={() => dispatch({ type: "CHANGE_SORT", column: "office" })}
-          >
-            Office
-          </TableHeaderCell>
-          <TableHeaderCell
-            sorted={column === "gb" ? direction : null}
-            onClick={() => dispatch({ type: "CHANGE_SORT", column: "gb" })}
-          >
-            GB
-          </TableHeaderCell>
-          <TableHeaderCell
-            sorted={column === "deleted" ? direction : null}
-            onClick={() => dispatch({ type: "CHANGE_SORT", column: "deleted" })}
-          >
-            Deleted
-          </TableHeaderCell>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {data.map(({ deleted, gb, office, path }) => (
-          <TableRow key={path}>
-            <TableCell>{path}</TableCell>
-            <TableCell>{office}</TableCell>
-            <TableCell>{gb}</TableCell>
-            <TableCell>{deleted}</TableCell>
+    selectedId && (
+      <Table sortable celled fixed compact>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderCell
+              width={10}
+              sorted={column === "path" ? direction : null}
+              onClick={() => dispatch({ type: "CHANGE_SORT", column: "path" })}
+            >
+              Path
+            </TableHeaderCell>
+            <TableHeaderCell
+              sorted={column === "office" ? direction : null}
+              onClick={() =>
+                dispatch({ type: "CHANGE_SORT", column: "office" })
+              }
+            >
+              Office
+            </TableHeaderCell>
+            <TableHeaderCell
+              sorted={column === "gb" ? direction : null}
+              onClick={() => dispatch({ type: "CHANGE_SORT", column: "gb" })}
+            >
+              GB
+            </TableHeaderCell>
+            <TableHeaderCell
+              sorted={column === "deleted" ? direction : null}
+              onClick={() =>
+                dispatch({ type: "CHANGE_SORT", column: "deleted" })
+              }
+            >
+              Deleted
+            </TableHeaderCell>
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHeader>
+        <TableBody>
+          {jsonData
+            ?.filter((item) => item?.id === selectedId)[0]
+            ?.networkData?.map(({ deleted, gb, office, path }) => (
+              <TableRow key={path}>
+                <TableCell>{path}</TableCell>
+                <TableCell>{office}</TableCell>
+                <TableCell>{gb}</TableCell>
+                <TableCell>{deleted}</TableCell>
+              </TableRow>
+            ))}
+        </TableBody>
+      </Table>
+    )
   );
 }
 

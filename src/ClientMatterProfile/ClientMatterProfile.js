@@ -1,22 +1,17 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
-  FormField,
   Button,
-  Segment,
-  Form,
-  FormSelect,
-  Accordion,
-  FormInput,
-  AccordionTitle,
-  AccordionContent,
-  Icon,
-  FormGroup,
   Divider,
-  Checkbox,
+  Form,
+  FormField,
+  FormGroup,
+  FormSelect,
+  Segment,
   TextArea,
 } from "semantic-ui-react";
 import "./ClientMatterProfile.css";
+
+import jsonData from "../data/data.json";
 
 const options = [
   { key: "ADM", text: "ALL DIGITAL MATTERS", value: "ALL DIGITAL MATTERS" },
@@ -31,104 +26,115 @@ const chargedOptions = [
   { key: "n", text: "No", value: "No" },
 ];
 
-const ClientMatterProfile = () => (
-  <div className="ClientMatterProfile">
-    <Segment>
-      <Form>
-        <FormGroup widths="equal">
-          <FormField>
-            <label>Activity</label>
-            <input placeholder="Activity" />
-          </FormField>
-          <FormField>
-            <label>DFS</label>
-            <input placeholder="DFS" />
-          </FormField>
-          <FormField>
-            <label>Status</label>
-            <input placeholder="Status" />
-          </FormField>
-        </FormGroup>
+const ClientMatterProfile = ({ selectedId }) => {
+  let details = {};
+  if (selectedId) {
+    details = jsonData?.filter((item) => item?.id === selectedId)[0];
+  }
 
-        <FormGroup widths="equal">
-          <FormField>
-            <label>POC</label>
-            <input placeholder="POC" />
-          </FormField>
+  return (
+    <div className="ClientMatterProfile">
+      <Segment>
+        <Form>
+          <FormGroup widths="equal">
+            <FormField>
+              <label>Activity</label>
+              <input value={details?.activity} placeholder="Activity" />
+            </FormField>
+            <FormField>
+              <label>DFS</label>
+              <input value={details?.dfs} placeholder="DFS" />
+            </FormField>
+            <FormField>
+              <label>Status</label>
+              <input value={details?.status} placeholder="Status" />
+            </FormField>
+          </FormGroup>
 
-          <FormField>
-            <label>LIT SUP</label>
-            <input placeholder="LIT SUP" />
-          </FormField>
-          <FormField>
-            <FormSelect
-              fluid
-              options={chargedOptions}
-              label="Charged"
-              placeholder="Charged"
-            />{" "}
-          </FormField>
-        </FormGroup>
+          <FormGroup widths="equal">
+            <FormField>
+              <label>POC</label>
+              <input value={details?.poc} placeholder="POC" />
+            </FormField>
 
-        <FormGroup widths="equal">
-          <FormField>
-            <label>Office</label>
-            <input
-              placeholder="Office"
-              readOnly
-              className="ClientMatterProfileInputGrey"
-            />
-          </FormField>
-          <FormField>
-            <label>Opened</label>
-            <input
-              placeholder="Opened"
-              readOnly
-              className="ClientMatterProfileInputGrey"
-            />
-          </FormField>
-        </FormGroup>
+            <FormField>
+              <label>LIT SUP</label>
+              <input value={details?.litsup} placeholder="LIT SUP" />
+            </FormField>
+            <FormField>
+              <FormSelect
+                fluid
+                options={chargedOptions}
+                label="Charged"
+                placeholder="Charged"
+              />{" "}
+            </FormField>
+          </FormGroup>
 
-        <FormGroup widths="equal">
-          <FormField>
-            <label>Bill Atty</label>
-            <input
-              placeholder="Bill Atty"
-              readOnly
-              className="ClientMatterProfileInputGrey"
-            />
-          </FormField>
-          <FormField>
-            <label>Rec Atty</label>
-            <input
-              placeholder="Rec Atty"
-              readOnly
-              className="ClientMatterProfileInputGrey"
-            />
-          </FormField>
-          <FormField>
-            <label>Billing</label>
-            <input
-              placeholder="Billing"
-              value="Closed"
-              readOnly
-              className="ClientMatterProfileInputGrey"
-            />
-          </FormField>
-        </FormGroup>
-        <FormField
-          control={TextArea}
-          label="Noted"
-          placeholder="More details about client matter..."
-        />
+          <FormGroup widths="equal">
+            <FormField>
+              <label>Office</label>
+              <input
+                placeholder="Office"
+                readOnly
+                value={details?.office}
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+            <FormField>
+              <label>Opened</label>
+              <input
+                placeholder="Opened"
+                readOnly
+                value={details?.opened}
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+          </FormGroup>
 
-        <Divider />
-        <Button type="submit">Update</Button>
-        <Button type="button">Clear</Button>
-      </Form>
-    </Segment>
-  </div>
-);
+          <FormGroup widths="equal">
+            <FormField>
+              <label>Bill Atty</label>
+              <input
+                placeholder="Bill Atty"
+                readOnly
+                value={details?.billatty}
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+            <FormField>
+              <label>Rec Atty</label>
+              <input
+                placeholder="Rec Atty"
+                readOnly
+                value={details?.recatty}
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+            <FormField>
+              <label>Billing</label>
+              <input
+                placeholder="Billing"
+                value={details?.bill}
+                readOnly
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+          </FormGroup>
+          <FormField
+            control={TextArea}
+            label="Noted"
+            placeholder="More details about client matter..."
+          />
+
+          <Divider />
+          <Button type="submit">Update</Button>
+          <Button type="button">Clear</Button>
+        </Form>
+      </Segment>
+    </div>
+  );
+};
 
 ClientMatterProfile.propTypes = {};
 

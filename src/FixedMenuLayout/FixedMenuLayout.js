@@ -1,43 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import ClientMatterGrid from "../ClientMatterGrid/ClientMatterGrid";
-import ClientMatterSearch from "../ClientMatterSearch/ClientMatterSearch";
 import ClientMatterProfile from "../ClientMatterProfile/ClientMatterProfile";
+import ClientMatterSearch from "../ClientMatterSearch/ClientMatterSearch";
 import ClientMatterSource from "../ClientMatterSource/ClientMatterSource";
 
 import {
   Container,
-  Divider,
   Dropdown,
   Grid,
+  GridColumn,
   Header,
   Image,
-  List,
   Menu,
-  Segment,
-  Message,
-  Table,
-  TableRow,
-  TableHeaderCell,
-  TableHeader,
-  TableCell,
-  TableBody,
-  GridColumn,
-  FormField,
-  Button,
-  Checkbox,
-  Form,
-  FormSelect,
-  Accordion,
-  FormInput,
-  AccordionTitle,
-  AccordionContent,
-  Icon,
-  FormGroup,
   Search,
+  Segment,
+  Table,
 } from "semantic-ui-react";
+import jsonData from "../data/data.json";
 
 export default function FixedMenuLayout() {
   const rowHeaders = ["", "DFS", "DMS", "Total"];
+  const [selectedId, setSelectedId] = useState(1);
+  const [filterStatus, setFilterStatus] = useState("all");
+  const [filterName, setFilterName] = useState("");
 
   const { loading, results, value } = "";
 
@@ -86,8 +71,7 @@ export default function FixedMenuLayout() {
     },
   ];
 
-  const columnKeys = Object.keys(CMDataDetails[1]);
-
+  const columnKeys = Object.keys(jsonData[0]?.dateData[0]);
   return (
     <div>
       <Menu fixed="top" inverted>
@@ -112,7 +96,12 @@ export default function FixedMenuLayout() {
           </Dropdown>
 
           <Menu.Item>
-            <Search loading={loading} placeholder="Search..." />
+            <Search
+              value={filterName}
+              onSearchChange={(e) => setFilterName(e?.target?.value)}
+              loading={loading}
+              placeholder="Search..."
+            />
           </Menu.Item>
         </Container>
       </Menu>
@@ -122,13 +111,22 @@ export default function FixedMenuLayout() {
         <Grid>
           <GridColumn width={6}>
             <Segment attached="top">
-              <ClientMatterSearch />
+              <ClientMatterSearch
+                setFilterStatus={setFilterStatus}
+                filterStatus={filterStatus}
+                setFilterName={setFilterName}
+                filterName={filterName}
+              />
             </Segment>
 
-            <ClientMatterGrid />
+            <ClientMatterGrid
+              filterStatus={filterStatus}
+              setSelectedId={setSelectedId}
+              filterName={filterName}
+            />
 
             <div>
-              <ClientMatterSource />
+              <ClientMatterSource selectedId={selectedId} />
             </div>
           </GridColumn>
 
@@ -148,25 +146,28 @@ export default function FixedMenuLayout() {
                     <Table.HeaderCell bold style={{ "padding-left": "10px" }}>
                       {header}
                     </Table.HeaderCell>
-                    {CMDataDetails.map((CMDataDetail) =>
-                      index == 0 ? (
-                        <Table.Cell
-                          style={{ "font-weight": "bold" }}
-                          key={CMDataDetail.id}
-                        >
-                          {CMDataDetail[columnKeys[index]]}
-                        </Table.Cell>
-                      ) : (
-                        <Table.Cell key={CMDataDetail.id}>
-                          {CMDataDetail[columnKeys[index]]}
-                        </Table.Cell>
-                      )
-                    )}
+                    {jsonData
+                      ?.filter((item) => item?.id === selectedId)[0]
+                      ?.dateData.map((CMDataDetail) => {
+                        console.log("CMDataDetail", columnKeys);
+                        return index === 0 ? (
+                          <Table.Cell
+                            style={{ "font-weight": "bold" }}
+                            key={CMDataDetail.id}
+                          >
+                            {CMDataDetail[columnKeys[index]]}
+                          </Table.Cell>
+                        ) : (
+                          <Table.Cell key={CMDataDetail.id}>
+                            {CMDataDetail[columnKeys[index]]}
+                          </Table.Cell>
+                        );
+                      })}
                   </Table.Row>
                 ))}
               </Table>
             </Segment>
-            <ClientMatterProfile />
+            <ClientMatterProfile selectedId={selectedId} />
           </GridColumn>
         </Grid>
       </Container>

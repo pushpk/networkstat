@@ -1,20 +1,18 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import "./ClientMatterSearch.css";
 import {
-  FormField,
-  Button,
-  Checkbox,
-  Form,
-  FormSelect,
   Accordion,
-  FormInput,
-  AccordionTitle,
   AccordionContent,
-  Icon,
-  FormGroup,
+  AccordionTitle,
+  Button,
   Divider,
+  Form,
+  FormField,
+  FormGroup,
+  FormInput,
+  FormSelect,
+  Icon,
 } from "semantic-ui-react";
+import "./ClientMatterSearch.css";
 
 const options = [
   {
@@ -95,11 +93,24 @@ export default class ClientMatterSearch extends Component {
                 label="Status"
                 options={options}
                 placeholder="Status"
+                onChange={(e, { value }) =>
+                  value === "ALL DIGITAL MATTERS"
+                    ? this.props.setFilterStatus("all")
+                    : this.props.setFilterStatus(
+                        value?.split(" ")[1]?.toLowerCase()
+                      )
+                }
               />{" "}
             </FormField>
             <FormField>
               <label>Client/Matter Name</label>
-              <input placeholder="Client/Matter Name" />
+              <input
+                onChange={(e) =>
+                  this.props.setFilterName(e.target.value?.toLocaleLowerCase())
+                }
+                value={this.props.filterName}
+                placeholder="Client/Matter Name"
+              />
             </FormField>
           </FormGroup>
           <Accordion>

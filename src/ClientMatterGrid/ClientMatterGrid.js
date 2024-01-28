@@ -1,13 +1,15 @@
 import _ from "lodash";
 import React from "react";
 import {
-  TableRow,
-  TableHeaderCell,
-  TableHeader,
-  TableCell,
-  TableBody,
   Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
 } from "semantic-ui-react";
+
+import jsonData from "../data/data.json";
 
 const cmData = [
   {
@@ -15,16 +17,14 @@ const cmData = [
     client: 10326.0,
     matter: "0002",
     clientname: "f",
-    mattername: "f"
+    mattername: "f",
     office: "CH",
     bill: "CLOSED",
     gb: 100.04,
     pn: 1.0,
     activity: "a",
-    status : 'Completed',
-    dateData : [
-      { }
-    ]
+    status: "Completed",
+    dateData: [{}],
   },
   {
     id: 2,
@@ -135,7 +135,7 @@ function handleRowClick(id) {
   console.log(id);
 }
 
-function ClientMatterGrid() {
+function ClientMatterGrid({ setSelectedId, filterStatus, filterName }) {
   const [state, dispatch] = React.useReducer(exampleReducer, {
     column: null,
     data: cmData,
@@ -182,22 +182,35 @@ function ClientMatterGrid() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map(({ id, client, matter, office, bill, gb, pn }) => (
-          <TableRow
-            key={id}
-            onClick={() => {
-              handleRowClick(id);
-            }}
-          >
-            <TableCell>
-              {client}-{matter}
-            </TableCell>
-            <TableCell>{office}</TableCell>
-            <TableCell>{bill}</TableCell>
-            <TableCell>{gb}</TableCell>
-            <TableCell>{pn}</TableCell>
-          </TableRow>
-        ))}
+        {jsonData
+          ?.filter((item) =>
+            filterStatus === "all"
+              ? true
+              : item?.status?.toLocaleLowerCase() === filterStatus
+          )
+          ?.filter((item) =>
+            !filterName
+              ? true
+              : item?.mattername?.toLocaleLowerCase()?.includes(filterName) ||
+                item?.clientname?.toLocaleLowerCase()?.includes(filterName)
+          )
+          ?.map(({ id, client, matter, office, bill, gb, pn }) => (
+            <TableRow
+              key={id}
+              // onClick={() => {
+              //   handleRowClick(id);
+              // }}
+              onClick={() => setSelectedId(id)}
+            >
+              <TableCell>
+                {client}-{matter}
+              </TableCell>
+              <TableCell>{office}</TableCell>
+              <TableCell>{bill}</TableCell>
+              <TableCell>{gb}</TableCell>
+              <TableCell>{pn}</TableCell>
+            </TableRow>
+          ))}
       </TableBody>
     </Table>
   );

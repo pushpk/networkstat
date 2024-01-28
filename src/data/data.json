@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "client": 10326.0,
+    "matter": "0002",
+    "office": "CH",
+    "bill": "CLOSED",
+    "gb": 100.04,
+    "pn": 1.0,
+    "clientname": "Ford Motors",
+    "mattername": "Matter Ford",
+    "activity": "abc",
+    "dfs": "dfs 1",
+    "status": "Completed",
+    "poc": "qaw",
+    "litsup": "litsup1",
+    "charged": true,
+    "opened": "01-01-2023",
+    "billatty": "ee",
+    "recatty": "qq",
+    "dateData": [
+      { "date": "jan 24", "dfs": 12.2, "dms": 2.75, "total": 14.95 },
+      { "date": "dec 23", "dfs": 2.2, "dms": 1.75, "total": 3.75 },
+      { "date": "nov 23", "dfs": 10.2, "dms": 2.5, "total": 12.7 }
+    ],
+    "networkData": [
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\databases100\\11181_PUBLI_0001_TAOS_DC",
+        "office": "CH",
+        "gb": "12",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\file1000\\111_PRI_0001_TAOS_DC",
+        "office": "CH",
+        "gb": "12",
+        "deleted": "yes"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "client": 10341.0,
+    "matter": "0004",
+    "office": "CH",
+    "bill": "CLOSED",
+    "gb": 0.01,
+    "pn": 1.0,
+    "clientname": "Apple Company",
+    "mattername": "Matter iphone",
+    "activity": "ddddd",
+    "dfs": "dfs 1",
+    "status": "In Progress",
+    "poc": "ddddd",
+    "litsup": "litsuddddd2",
+    "charged": true,
+    "opened": "01-11-2023",
+    "billatty": "eew",
+    "recatty": "qwq",
+    "dateData": [
+      { "date": "jan 24", "dfs": 1, "dms": 2, "total": 3 },
+      { "date": "dec 23", "dfs": 2.2, "dms": 1.0, "total": 3.0 },
+      { "date": "nov 23", "dfs": 5.2, "dms": 2.2, "total": 7.4 }
+    ],
+    "networkData": [
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\databases100\\110341_PUBLI_0001_TAOS_DC",
+        "office": "CH",
+        "gb": "12",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\file1000\\111_PRI_10341_TAOS_DC",
+        "office": "CH",
+        "gb": "12",
+        "deleted": "yes"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "client": 10585.0,
+    "matter": "0005",
+    "office": "NY",
+    "bill": "CLOSED",
+    "gb": 1.19,
+    "pn": 1.0,
+    "clientname": "Microsoft Company",
+    "mattername": "Matter MS Office",
+    "activity": "ddddd",
+    "dfs": "dfs 1",
+    "status": "Incomplete",
+    "poc": "wewerewr",
+    "litsup": "litsuddddd3",
+    "charged": true,
+    "opened": "01-11-2021",
+    "billatty": "eew",
+    "recatty": "qwq",
+    "dateData": [
+      { "date": "jan 24", "dfs": 10, "dms": 10, "total": 20 },
+      { "date": "dec 23", "dfs": 20, "dms": 10, "total": 30 },
+      { "date": "nov 23", "dfs": 5.2, "dms": 2.2, "total": 7.4 }
+    ],
+    "networkData": [
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\10585\\ch-fps-pan-p01\\10585\\110341_PUBLI_0001_TAOS_DC",
+        "office": "NY",
+        "gb": "50",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\10585\\10585",
+        "office": "CH",
+        "gb": "12",
+        "deleted": "yes"
+      }
+    ]
+  }
+]
