@@ -27,48 +27,6 @@ export default function FixedMenuLayout() {
   const { loading, results, value } = "";
 
   const CMDataDetails = [
-    {
-      month: "Jan 24",
-      DMS: 1.25,
-      DFS: 1.5,
-      Total: 2.75,
-    },
-    {
-      month: "Dec 23",
-      DMS: 1.1,
-      DFS: 1.2,
-      Total: 2.3,
-    },
-    {
-      month: "Nov 24",
-      DMS: 1.25,
-      DFS: 0,
-      Total: 1.25,
-    },
-    {
-      month: "Oct 24",
-      DMS: 1.0,
-      DFS: 0,
-      Total: 1.0,
-    },
-    {
-      month: "Sep 24",
-      DMS: 1.25,
-      DFS: 1.5,
-      Total: 2.75,
-    },
-    {
-      month: "Aug 24",
-      DMS: 0.75,
-      DFS: 0.2,
-      Total: 0.95,
-    },
-    {
-      month: "Jul 24",
-      DMS: 0.75,
-      DFS: 0.2,
-      Total: 0.95,
-    },
   ];
 
   const columnKeys = Object.keys(jsonData[0]?.dateData[0]);
