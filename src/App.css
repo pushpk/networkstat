@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+#kandE-logo {
+  background-image: url(../assets/svgs/Kirkland-Ellis-Logo.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 260px;
+  height: 22px;
+  margin: 0.5vh 0 2vh 0;
+}
