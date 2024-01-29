@@ -23,25 +23,25 @@ const options = [
   },
   {
     key: "AIP",
-    text: "IN PROGRESS",
+    text: "ARCHIVE IN PROGRESS",
     value: "ARCHIVE IN PROGRESS",
     title: "ARCHIVE IN PROGRESS",
   },
   {
     key: "AC",
-    text: "COMPLETED",
+    text: "ARCHIVE COMPLETED",
     value: "ARCHIVE COMPLETED",
     title: "ARCHIVE COMPLETED",
   },
   {
     key: "AI",
-    text: "INCOMPLETE",
+    text: "ARCHIVE INCOMPLETE",
     value: "ARCHIVE INCOMPLETE",
     title: "ARCHIVE INCOMPLETE",
   },
   {
     key: "AR",
-    text: " RESTORE",
+    text: "ARCHIVE RESTORE",
     value: "ARCHIVE RESTORE",
     title: "ARCHIVE RESTORE",
   },
@@ -80,6 +80,8 @@ export default class ClientMatterSearch extends Component {
     this.setState({ activeIndex: newIndex });
   };
 
+  resetFields = () => {};
+
   render() {
     const { activeIndex } = this.state;
 
@@ -89,6 +91,7 @@ export default class ClientMatterSearch extends Component {
           <FormGroup widths={"equal"}>
             <FormField>
               <FormSelect
+                ref="statusSearch"
                 fluid
                 label="Status"
                 options={options}
@@ -96,15 +99,14 @@ export default class ClientMatterSearch extends Component {
                 onChange={(e, { value }) =>
                   value === "ALL DIGITAL MATTERS"
                     ? this.props.setFilterStatus("all")
-                    : this.props.setFilterStatus(
-                        value?.split(" ")[1]?.toLowerCase()
-                      )
+                    : this.props.setFilterStatus(value?.toString())
                 }
               />{" "}
             </FormField>
             <FormField>
               <label>Client/Matter Name</label>
               <input
+                ref="cmNameSearch"
                 onChange={(e) =>
                   this.props.setFilterName(e.target.value?.toLocaleLowerCase())
                 }
@@ -125,6 +127,7 @@ export default class ClientMatterSearch extends Component {
             <AccordionContent active={activeIndex === 0}>
               <FormField>
                 <FormSelect
+                  ref="officeSearch"
                   fluid
                   options={officeOptions}
                   placeholder="Office"
@@ -148,8 +151,9 @@ export default class ClientMatterSearch extends Component {
 
           <div></div>
           <Divider />
-          <Button type="submit">Search</Button>
-          <Button type="button">Reset</Button>
+          <Button type="button" onClick={this.resetFields}>
+            Reset
+          </Button>
         </Form>
       </div>
     );

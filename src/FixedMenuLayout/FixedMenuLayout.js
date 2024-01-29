@@ -17,6 +17,7 @@ import {
   Table,
 } from "semantic-ui-react";
 import jsonData from "../data/data.json";
+import { Link } from "react-router-dom";
 
 export default function FixedMenuLayout() {
   const rowHeaders = ["", "DFS", "DMS", "Total"];
@@ -26,8 +27,10 @@ export default function FixedMenuLayout() {
 
   const { loading, results, value } = "";
 
-  const CMDataDetails = [
-  ];
+  let selectedCmDetail = {};
+  if (selectedId) {
+    selectedCmDetail = jsonData?.filter((item) => item?.id === selectedId)[0];
+  }
 
   const columnKeys = Object.keys(jsonData[0]?.dateData[0]);
   return (
@@ -39,11 +42,25 @@ export default function FixedMenuLayout() {
 
             <Image size="medlaium" src="" style={{ marginRight: "1.5em" }} />
           </Menu.Item>
-          <Menu.Item as="a">Home</Menu.Item>
-          <Menu.Item as="a">Matters</Menu.Item>
-          <Menu.Item as="a">File Shares</Menu.Item>
-          <Menu.Item as="a">Events</Menu.Item>
-          <Menu.Item as="a">Reports</Menu.Item>
+          <Menu.Item as="a">
+            <Link to="/home">Home </Link>
+          </Menu.Item>
+          <Menu.Item as="a">
+            <Link to="/matters">Matters </Link>
+          </Menu.Item>
+
+          <Menu.Item as="a">
+            <Link to="/fileshares">File Shares </Link>
+          </Menu.Item>
+
+          <Menu.Item as="a">
+            {" "}
+            <Link to="/events">Events </Link>
+          </Menu.Item>
+          <Menu.Item as="a">
+            {" "}
+            <Link to="/reports">Reports </Link>
+          </Menu.Item>
           <Dropdown item simple text="Admin">
             <Dropdown.Menu>
               <Dropdown.Item>Grant Access</Dropdown.Item>
@@ -90,7 +107,10 @@ export default function FixedMenuLayout() {
 
           <GridColumn width={10}>
             <Segment>
-              <Header as="h3">Client Matter</Header>
+              <Header as="h3">
+                {selectedCmDetail?.clientname} - {selectedCmDetail?.mattername}{" "}
+                ({selectedCmDetail?.client}-{selectedCmDetail?.matter})
+              </Header>
             </Segment>
             <Segment>
               <Table

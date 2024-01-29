@@ -11,104 +11,6 @@ import {
 
 import jsonData from "../data/data.json";
 
-const cmData = [
-  {
-    id: 1,
-    client: 10326.0,
-    matter: "0002",
-    clientname: "f",
-    mattername: "f",
-    office: "CH",
-    bill: "CLOSED",
-    gb: 100.04,
-    pn: 1.0,
-    activity: "a",
-    status: "Completed",
-    dateData: [{}],
-  },
-  {
-    id: 2,
-    client: 10341.0,
-    matter: "0004",
-    office: "CH",
-    bill: "CLOSED",
-    gb: 0.01,
-    pn: 1.0,
-  },
-  {
-    id: 3,
-    client: 10585.0,
-    matter: "0005",
-    office: "NY",
-    bill: "CLOSED",
-    gb: 1.19,
-    pn: 1.0,
-  },
-  {
-    id: 4,
-    client: 10670.0,
-    matter: "0018",
-    office: "CH",
-    bill: "CLOSED",
-    gb: 1.0,
-    pn: 1.0,
-  },
-  {
-    id: 5,
-    client: 10930.0,
-    matter: "0001",
-    office: "NY",
-    bill: "CLOSED",
-    gb: 1.0,
-    pn: 1.0,
-  },
-  {
-    id: 6,
-    client: 10987.0,
-    matter: "0002",
-    office: "CH",
-    bill: "CLOSED",
-    gb: 1.39,
-    pn: 1.0,
-  },
-  {
-    id: 7,
-    client: 11012.0,
-    matter: "0032",
-    office: "DC",
-    bill: "CLOSED",
-    gb: 1.0,
-    pn: 1.0,
-  },
-  {
-    id: 8,
-    client: 11012.0,
-    matter: "0144",
-    office: "NY",
-    bill: "CLOSED",
-    gb: 1.0,
-    pn: 1.0,
-  },
-  {
-    id: 9,
-    client: 11054.0,
-    matter: "0004",
-    office: "SF",
-    bill: "CLOSED",
-    gb: 284.9,
-    pn: 1.0,
-  },
-  {
-    id: 10,
-    client: 11181.0,
-    matter: "0001",
-    office: "UK",
-    bill: "CLOSED",
-    gb: 261.31,
-    pn: 1.0,
-  },
-];
-
 function exampleReducer(state, action) {
   switch (action.type) {
     case "CHANGE_SORT":
@@ -131,14 +33,10 @@ function exampleReducer(state, action) {
   }
 }
 
-function handleRowClick(id) {
-  console.log(id);
-}
-
 function ClientMatterGrid({ setSelectedId, filterStatus, filterName }) {
   const [state, dispatch] = React.useReducer(exampleReducer, {
     column: null,
-    data: cmData,
+    data: jsonData,
     direction: null,
   });
   const { column, data, direction } = state;
@@ -182,11 +80,11 @@ function ClientMatterGrid({ setSelectedId, filterStatus, filterName }) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {jsonData
+        {data
           ?.filter((item) =>
             filterStatus === "all"
               ? true
-              : item?.status?.toLocaleLowerCase() === filterStatus
+              : item?.status?.toString() === filterStatus
           )
           ?.filter((item) =>
             !filterName

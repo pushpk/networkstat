@@ -6,19 +6,47 @@ import {
   FormField,
   FormGroup,
   FormSelect,
+  Message,
+  MessageHeader,
   Segment,
   TextArea,
 } from "semantic-ui-react";
 import "./ClientMatterProfile.css";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import jsonData from "../data/data.json";
 
 const options = [
-  { key: "ADM", text: "ALL DIGITAL MATTERS", value: "ALL DIGITAL MATTERS" },
-  { key: "AIP", text: "ARCHIVE IN PROGRESS", value: "ARCHIVE IN PROGRESS" },
-  { key: "AC", text: "ARCHIVE COMPLETED", value: "ARCHIVE COMPLETED" },
-  { key: "AI", text: "ARCHIVE INCOMPLETE", value: "ARCHIVE INCOMPLETE" },
-  { key: "AR", text: "ARCHIVE RESTORE", value: "ARCHIVE RESTORE" },
+  {
+    key: "ADM",
+    text: "ALL",
+    value: "ALL DIGITAL MATTERS",
+    title: "ALL DIGITAL MATTERS",
+  },
+  {
+    key: "AIP",
+    text: "ARCHIVE IN PROGRESS",
+    value: "ARCHIVE IN PROGRESS",
+    title: "ARCHIVE IN PROGRESS",
+  },
+  {
+    key: "AC",
+    text: "ARCHIVE COMPLETED",
+    value: "ARCHIVE COMPLETED",
+    title: "ARCHIVE COMPLETED",
+  },
+  {
+    key: "AI",
+    text: "ARCHIVE INCOMPLETE",
+    value: "ARCHIVE INCOMPLETE",
+    title: "ARCHIVE INCOMPLETE",
+  },
+  {
+    key: "AR",
+    text: "ARCHIVE RESTORE",
+    value: "ARCHIVE RESTORE",
+    title: "ARCHIVE RESTORE",
+  },
 ];
 
 const chargedOptions = [
@@ -32,6 +60,8 @@ const ClientMatterProfile = ({ selectedId }) => {
     details = jsonData?.filter((item) => item?.id === selectedId)[0];
   }
 
+  const notify = () => toast.success("Update Success!");
+
   return (
     <div className="ClientMatterProfile">
       <Segment>
@@ -39,27 +69,32 @@ const ClientMatterProfile = ({ selectedId }) => {
           <FormGroup widths="equal">
             <FormField>
               <label>Activity</label>
-              <input value={details?.activity} placeholder="Activity" />
+              <input defaultValue={details?.activity} placeholder="Activity" />
             </FormField>
             <FormField>
               <label>DFS</label>
-              <input value={details?.dfs} placeholder="DFS" />
+              <input defaultValue={details?.dfs} placeholder="DFS" />
             </FormField>
             <FormField>
-              <label>Status</label>
-              <input value={details?.status} placeholder="Status" />
+              <FormSelect
+                fluid
+                label="Status"
+                options={options}
+                placeholder="Status"
+                defaultValue={details?.status}
+              />
             </FormField>
           </FormGroup>
 
           <FormGroup widths="equal">
             <FormField>
               <label>POC</label>
-              <input value={details?.poc} placeholder="POC" />
+              <input defaultValue={details?.poc} placeholder="POC" />
             </FormField>
 
             <FormField>
               <label>LIT SUP</label>
-              <input value={details?.litsup} placeholder="LIT SUP" />
+              <input defaultValue={details?.litsup} placeholder="LIT SUP" />
             </FormField>
             <FormField>
               <FormSelect
@@ -87,6 +122,15 @@ const ClientMatterProfile = ({ selectedId }) => {
                 placeholder="Opened"
                 readOnly
                 value={details?.opened}
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+            <FormField>
+              <label>Closed</label>
+              <input
+                placeholder="Closed"
+                readOnly
+                value={details?.closed}
                 className="ClientMatterProfileInputGrey"
               />
             </FormField>
@@ -123,13 +167,17 @@ const ClientMatterProfile = ({ selectedId }) => {
           </FormGroup>
           <FormField
             control={TextArea}
-            label="Noted"
+            label="Notes"
+            value={details?.notes}
             placeholder="More details about client matter..."
           />
 
           <Divider />
-          <Button type="submit">Update</Button>
+          <Button type="submit" color="green" onClick={notify}>
+            Update
+          </Button>
           <Button type="button">Clear</Button>
+          <ToastContainer position="bottom-right" />
         </Form>
       </Segment>
     </div>
