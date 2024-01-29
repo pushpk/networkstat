@@ -43,12 +43,12 @@ const Fileshare = () => (
           {" "}
           <Link to="/reports">Reports </Link>
         </Menu.Item>
-        <Dropdown item simple text="Admin">
+        <Dropdown item simple text="Source">
           <Dropdown.Menu>
-            <Dropdown.Item>Grant Access</Dropdown.Item>
-            <Dropdown.Item>Users</Dropdown.Item>
+            <Dropdown.Item>Data Source 1</Dropdown.Item>
+            <Dropdown.Item>Data Source 2</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item>Audit Trail</Dropdown.Item>
+            <Dropdown.Item>Data Source 3</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </Container>

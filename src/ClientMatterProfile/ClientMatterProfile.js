@@ -69,7 +69,7 @@ const ClientMatterProfile = ({ selectedId }) => {
           <FormGroup widths="equal">
             <FormField>
               <label>Activity</label>
-              <input defaultValue={details?.activity} placeholder="Activity" />
+              <input value={details?.activity} placeholder="Activity" />
             </FormField>
             <FormField>
               <label>DFS</label>
@@ -81,7 +81,7 @@ const ClientMatterProfile = ({ selectedId }) => {
                 label="Status"
                 options={options}
                 placeholder="Status"
-                defaultValue={details?.status}
+                value={details?.status}
               />
             </FormField>
           </FormGroup>
@@ -89,12 +89,12 @@ const ClientMatterProfile = ({ selectedId }) => {
           <FormGroup widths="equal">
             <FormField>
               <label>POC</label>
-              <input defaultValue={details?.poc} placeholder="POC" />
+              <input value={details?.poc} placeholder="POC" />
             </FormField>
 
             <FormField>
               <label>LIT SUP</label>
-              <input defaultValue={details?.litsup} placeholder="LIT SUP" />
+              <input value={details?.litsup} placeholder="LIT SUP" />
             </FormField>
             <FormField>
               <FormSelect
