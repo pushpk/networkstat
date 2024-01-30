@@ -1,302 +1,345 @@
 [
   {
     "id": 1,
-    "client": 68247.7,
-    "matter": "0018",
-    "office": "NY",
+    "client": 10326.0,
+    "matter": "0002",
+    "office": "CH",
     "bill": "CLOSED",
-    "gb": 8.65,
-    "pn": 36780.4,
-    "clientname": "Inc.",
-    "mattername": "Service Repair Solutions",
-    "activity": "Inactive",
-    "dfs": "10670_SOLER_0018_SERVI",
-    "status": "Archive Queue",
-    "poc": "Mollie Tuomisto",
-    "litsup": "Test Lit Sup",
+    "gb": 100.04,
+    "pn": 1.0,
+    "clientname": "Ford Motors",
+    "mattername": "Matter Ford",
+    "activity": "Activity Test1",
+    "dfs": "Ford_Motors_Plant",
+    "status": "ARCHIVE IN PROGRESS",
+    "poc": "poc test 1",
+    "litsup": "litsup test1",
     "charged": true,
-    "opened": "error: invalid date \"01-01-2021\"",
-    "billatty": "Ritchie",
-    "recatty": "Walter S",
+    "opened": "01-01-2023",
+    "closed": "08-07-2004",
+    "billatty": "Matt Hanry",
+    "billattystatus": "Active",
+    "recatty": "Donald Calls",
     "dateData": [
-      { "date": "Oct 23", "dfs": 76.8, "dms": 83.2, "total": 13.0 },
-      { "date": "Aug 23", "dfs": 0.1, "dms": 97.3, "total": 68.1 },
-      { "date": "Sep 23", "dfs": 71.2, "dms": 77.8, "total": 13.1 },
-      { "date": "Nov 23", "dfs": 24.2, "dms": 12.8, "total": 80.1 }
+      { "date": "Jan 24", "dfs": 12.2, "dms": 2.75, "total": 14.95 },
+      { "date": "Dec 23", "dfs": 2.2, "dms": 1.75, "total": 3.75 },
+      { "date": "Nov 23", "dfs": 10.3, "dms": 2.5, "total": 12.7 },
+      { "date": "Oct 23", "dfs": 5.2, "dms": 2.5, "total": 7.7 },
+      { "date": "Sep 23", "dfs": 55.0, "dms": 30.0, "total": 85.0 },
+      { "date": "Aug 23", "dfs": 40.8, "dms": 20.0, "total": 60.8 }
     ],
-    "networkData": []
+    "networkData": [
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\databases100\\11181_PUBLI_0001_TAOS_DC",
+        "office": "CH",
+        "gb": "12",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\file1000\\111_PRI_0001_TAOS_DC",
+        "office": "CH",
+        "gb": "12",
+        "deleted": "yes"
+      }
+    ]
   },
   {
     "id": 2,
-    "client": 20417.9,
-    "matter": "0018",
-    "office": "NY",
-    "bill": "OPEN",
-    "gb": 97.83,
-    "pn": 48491.3,
-    "clientname": "Solera",
-    "mattername": "Service Repair Solutions",
-    "activity": "Active",
-    "dfs": "10670_SOLER_0018_SERVI",
-    "status": "Archive Queue",
-    "poc": "Mollie Tuomisto",
-    "litsup": "Test Lit Sup",
-    "charged": false,
-    "opened": "error: invalid date \"01-01-2021\"",
-    "billatty": "Ritchie",
-    "recatty": "Walter S",
-    "dateData": [],
+    "client": 10341.0,
+    "matter": "0004",
+    "office": "CH",
+    "bill": "CLOSED",
+    "gb": 0.01,
+    "pn": 1.0,
+    "clientname": "Apple Company",
+    "mattername": "Matter iphone",
+    "activity": "ddddd",
+    "dfs": "dfs 1",
+    "status": "ARCHIVE IN PROGRESS",
+    "poc": "Test POC 1",
+    "litsup": "lit sup test 2",
+    "charged": true,
+    "opened": "01-11-2023",
+    "closed": "08-07-2004",
+    "billatty": "Mak Wallet",
+    "recatty": "Mak Wallet",
+    "notes": "02/13/19: OK to archive per JMiller.",
+    "dateData": [
+      { "date": "Jan 24", "dfs": 1, "dms": 2, "total": 3 },
+      { "date": "Dec 23", "dfs": 2.2, "dms": 1.0, "total": 3.0 },
+      { "date": "Nov 23", "dfs": 5.2, "dms": 2.2, "total": 7.4 },
+      { "date": "Oct 23", "dfs": 15.2, "dms": 2.5, "total": 17.7 },
+      { "date": "Sep 23", "dfs": 23.9, "dms": 11.9, "total": 12.0 },
+      { "date": "Aug 23", "dfs": 45.8, "dms": 15.0, "total": 20.8 }
+    ],
     "networkData": [
       {
-        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\10585\\10585",
-        "office": "NY",
-        "gb": 13,
-        "deleted": "no"
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\databases100\\110341_PUBLI_0001_TAOS_DC",
+        "office": "CH",
+        "gb": "12",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\file1000\\111_PRI_10341_TAOS_DC",
+        "office": "CH",
+        "gb": "12",
+        "deleted": "yes"
       }
     ]
   },
   {
     "id": 3,
-    "client": 26457.1,
-    "matter": "0018",
-    "office": "CH",
-    "bill": "OPEN",
-    "gb": 66.76,
-    "pn": 74750.4,
-    "clientname": "Inc.",
-    "mattername": "Service Repair Solutions",
-    "activity": "Active",
-    "dfs": "10670_SOLER_0018_SERVI",
-    "status": "Archive Queue",
-    "poc": "Mollie Tuomisto",
-    "litsup": "Test Lit Sup",
+    "client": 10585.0,
+    "matter": "0005",
+    "office": "NY",
+    "bill": "CLOSED",
+    "gb": 1.19,
+    "pn": 1.0,
+    "clientname": "Microsoft Company",
+    "mattername": "Matter MS Office",
+    "activity": "Microsoft Activity",
+    "dfs": "MICROSOFT_123_Acti",
+    "status": "ARCHIVE COMPLETED",
+    "poc": "poc Test 1",
+    "litsup": "Lit Sup 3",
     "charged": true,
-    "opened": "error: invalid date \"01-01-2021\"",
-    "billatty": "Ritchie",
-    "recatty": "Walter S",
+    "opened": "01-11-2021",
+    "closed": "08-07-2004",
+    "billatty": "Arthur Donal",
+    "recatty": "Zack Mikey",
+    "notes": "",
     "dateData": [
-      { "date": "Nov 23", "dfs": 2.7, "dms": 3.2, "total": 51.5 },
-      { "date": "Sep 23", "dfs": 63.6, "dms": 99.2, "total": 4.0 }
+      { "date": "Jan 24", "dfs": 10, "dms": 20, "total": 30 },
+      { "date": "Dec 23", "dfs": 12.2, "dms": 11.0, "total": 23.2 },
+      { "date": "Nov 23", "dfs": 5.2, "dms": 2.2, "total": 7.4 },
+      { "date": "Oct 23", "dfs": 5.2, "dms": 2.5, "total": 7.7 },
+      { "date": "Sep 23", "dfs": 23.9, "dms": 11.9, "total": 12.0 },
+      { "date": "Aug 23", "dfs": 55.8, "dms": 5.0, "total": 60.8 }
     ],
-    "networkData": []
-  },
-  {
-    "id": 4,
-    "client": 35228.2,
-    "matter": "0018",
-    "office": "CH",
-    "bill": "OPEN",
-    "gb": 82.21,
-    "pn": 45940.4,
-    "clientname": "Inc.",
-    "mattername": "Service Repair Solutions",
-    "activity": "Active",
-    "dfs": "10670_SOLER_0018_SERVI",
-    "status": "Archive Queue",
-    "poc": "Mollie Tuomisto",
-    "litsup": "Test Lit Sup",
-    "charged": false,
-    "opened": "error: invalid date \"01-01-2021\"",
-    "billatty": "Ritchie",
-    "recatty": "Walter S",
-    "dateData": [
-      { "date": "Aug 23", "dfs": 15.0, "dms": 46.2, "total": 66.8 },
-      { "date": "Sep 23", "dfs": 11.9, "dms": 99.4, "total": 15.6 }
-    ],
-    "networkData": []
-  },
-  {
-    "id": 5,
-    "client": 34117.1,
-    "matter": "0018",
-    "office": "CH",
-    "bill": "OPEN",
-    "gb": 34.28,
-    "pn": 11529.0,
-    "clientname": "Inc.",
-    "mattername": "Service Repair Solutions",
-    "activity": "Active",
-    "dfs": "10670_SOLER_0018_SERVI",
-    "status": "Inactive",
-    "poc": "Mollie Tuomisto",
-    "litsup": "Test Lit Sup",
-    "charged": false,
-    "opened": "error: invalid date \"01-01-2021\"",
-    "billatty": "Stephen L",
-    "recatty": "Walter S",
-    "dateData": [],
     "networkData": [
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\10585\\ch-fps-pan-p01\\10585\\110341_PUBLI_0001_TAOS_DC",
+        "office": "NY",
+        "gb": "50",
+        "deleted": "yes"
+      },
       {
         "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\10585\\10585",
         "office": "CH",
-        "gb": 82,
-        "deleted": "no"
+        "gb": "12",
+        "deleted": "yes"
+      }
+    ]
+  },
+
+  {
+    "id": 4,
+    "client": 10670.0,
+    "matter": "0018",
+    "office": "CH",
+    "bill": "CLOSED",
+    "gb": 25.19,
+    "pn": 0.0,
+    "clientname": "Solera, Inc.",
+    "mattername": "Service Repair Solutions",
+    "activity": "Active",
+    "dfs": "10670_SOLER_0018_SERVI",
+    "status": "ARCHIVE COMPLETED",
+    "poc": "Mollie Tuomisto",
+    "litsup": "Test Lit Sup",
+    "charged": true,
+    "opened": "01-11-2021",
+    "closed": "08-07-2004",
+    "billatty": "Ritchie, Stephen L",
+    "recatty": "Holzer, Walter S",
+    "notes": "",
+    "dateData": [
+      { "date": "Jan 24", "dfs": 10, "dms": 20, "total": 30 },
+      { "date": "Dec 23", "dfs": 12.2, "dms": 11.0, "total": 23.2 },
+      { "date": "Nov 23", "dfs": 5.2, "dms": 2.2, "total": 7.4 },
+      { "date": "Oct 23", "dfs": 5.2, "dms": 2.5, "total": 7.7 },
+      { "date": "Sep 23", "dfs": 23.9, "dms": 11.9, "total": 12.0 },
+      { "date": "Aug 23", "dfs": 55.8, "dms": 5.0, "total": 60.8 }
+    ],
+    "networkData": [
+      {
+        "path": "\\ch-cfs-svm-p11\\images22\\10987_RYANS_0002_CRCIN",
+        "office": "NY",
+        "gb": "50",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\ch-cfs-svm-p11\\rmdb01$\\10987_RYAN_0002_CRC",
+        "office": "CH",
+        "gb": "12",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\ch-cfs-svm-p11\\rmdb01$\\10987_4545454_RYAN_0002_CRC",
+        "office": "NY",
+        "gb": "12",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\databases100\\10987_RYANS_0002_CRCIN_CH",
+        "office": "CH",
+        "gb": "12",
+        "deleted": "yes"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "client": 11696.0,
+    "matter": "0002",
+    "office": "CH",
+    "bill": "CLOSED",
+    "gb": 25.19,
+    "pn": 0.0,
+    "clientname": "Chamberlain Group.",
+    "mattername": "Techtronic Industries Nor",
+    "activity": "Active",
+    "dfs": "11696_CHAMB_0002_INDUS",
+    "status": "ARCHIVE QUEUE",
+    "poc": "Mollie Tuomisto",
+    "litsup": "Test Lit Sup",
+    "charged": true,
+    "opened": "01-11-2021",
+    "closed": "08-07-2004",
+    "billatty": "Parker, Justin C",
+    "recatty": "Parker, Justin C",
+    "notes": "09/24/15: OK to archive from AGenser email",
+    "dateData": [
+      { "date": "Jan 24", "dfs": 1, "dms": 2, "total": 3 },
+      { "date": "Dec 23", "dfs": 2.2, "dms": 1.0, "total": 3.0 },
+      { "date": "Nov 23", "dfs": 5.2, "dms": 2.2, "total": 7.4 },
+      { "date": "Oct 23", "dfs": 15.2, "dms": 2.5, "total": 17.7 },
+      { "date": "Sep 23", "dfs": 23.9, "dms": 11.9, "total": 12.0 },
+      { "date": "Aug 23", "dfs": 45.8, "dms": 15.0, "total": 20.8 }
+    ],
+    "networkData": [
+      {
+        "path": "\\ch-cfs-svm-p11\\databases11$\\11696_CHAMB_0002_ICL",
+        "office": "NY",
+        "gb": "50",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\ch-cfs-svm-p11\\files18$\\11696_CHAMB_0002_ICL",
+        "office": "CH",
+        "gb": "145",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\dc-cfs-svm-p11\\files13$\\11696_CHAMB_7878780002_ICL",
+        "office": "NY",
+        "gb": "55",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\dc-cfs-svm-p11\\files13$\\11696_CHAMB_0002_ICL",
+        "office": "CH",
+        "gb": "50",
+        "deleted": "yes"
       }
     ]
   },
   {
     "id": 6,
-    "client": 3690.7,
-    "matter": "0018",
-    "office": "CH",
-    "bill": "OPEN",
-    "gb": 63.41,
-    "pn": 43504.6,
-    "clientname": "Inc.",
-    "mattername": "Service Repair Solutions",
-    "activity": "Inactive",
-    "dfs": "10670_SOLER_0018_SERVI",
-    "status": "Inactive",
+    "client": 72663.0,
+    "matter": "0787",
+    "office": "DC",
+    "bill": "CLOSED",
+    "gb": 25.19,
+    "pn": 0.0,
+    "clientname": "Morgan, Stanley & Co.",
+    "mattername": " Insurance Department Inqu",
+    "activity": "Dead",
+    "dfs": "72663_MORGA_0787_INSUR",
+    "status": "ARCHIVE QUEUE",
     "poc": "Mollie Tuomisto",
     "litsup": "Test Lit Sup",
     "charged": true,
-    "opened": "error: invalid date \"01-01-2021\"",
-    "billatty": "Stephen L",
-    "recatty": "Holzer",
+    "opened": "08-07-2004",
+    "closed": "08-07-2004",
+    "billatty": "Yannucci, Thomas D",
+    "recatty": "Parker, Justin C",
+    "notes": "08/24/10: Need OK from team to archive this matter",
     "dateData": [
-      { "date": "Dec 23", "dfs": 13.9, "dms": 13.3, "total": 66.9 },
-      { "date": "Dec 23", "dfs": 75.4, "dms": 67.3, "total": 54.0 },
-      { "date": "Aug 23", "dfs": 60.7, "dms": 2.6, "total": 93.6 }
+      { "date": "Jan 24", "dfs": 1, "dms": 2, "total": 3 },
+      { "date": "Dec 23", "dfs": 2.2, "dms": 1.0, "total": 3.0 },
+      { "date": "Nov 23", "dfs": 5.2, "dms": 2.2, "total": 7.4 },
+      { "date": "Oct 23", "dfs": 15.2, "dms": 2.5, "total": 17.7 },
+      { "date": "Sep 23", "dfs": 23.9, "dms": 11.9, "total": 12.0 },
+      { "date": "Aug 23", "dfs": 45.8, "dms": 15.0, "total": 20.8 }
     ],
     "networkData": [
       {
-        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\10585\\10585",
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\databases100\\72663_MORGA_0787_INSUR_DC",
         "office": "CH",
-        "gb": 38,
+        "gb": "12",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\file1000\\111_PRI_0001_TAOS_DC",
+        "office": "CH",
+        "gb": "12",
         "deleted": "yes"
       }
     ]
   },
   {
     "id": 7,
-    "client": 79188.1,
-    "matter": "0018",
-    "office": "CH",
-    "bill": "OPEN",
-    "gb": 64.93,
-    "pn": 88822.6,
-    "clientname": "Inc.",
-    "mattername": "Service Repair Solutions",
-    "activity": "Active",
-    "dfs": "10670_SOLER_0018_SERVI",
-    "status": "Active",
-    "poc": "Mollie Tuomisto",
-    "litsup": "Test Lit Sup",
-    "charged": true,
-    "opened": "error: invalid date \"01-01-2021\"",
-    "billatty": "Ritchie",
-    "recatty": "Holzer",
-    "dateData": [
-      { "date": "Sep 23", "dfs": 44.0, "dms": 59.1, "total": 29.4 },
-      { "date": "Nov 23", "dfs": 7.4, "dms": 43.5, "total": 59.9 },
-      { "date": "Nov 23", "dfs": 39.0, "dms": 81.4, "total": 87.4 }
-    ],
-    "networkData": [
-      {
-        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\10585\\10585",
-        "office": "CH",
-        "gb": 84,
-        "deleted": "yes"
-      },
-      {
-        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\10585\\10585",
-        "office": "NY",
-        "gb": 10,
-        "deleted": "no"
-      }
-    ]
-  },
-  {
-    "id": 8,
-    "client": 86051.1,
-    "matter": "0018",
-    "office": "CH",
-    "bill": "OPEN",
-    "gb": 77.83,
-    "pn": 10218.8,
-    "clientname": "Solera",
-    "mattername": "Service Repair Solutions",
-    "activity": "Active",
-    "dfs": "10670_SOLER_0018_SERVI",
-    "status": "Archive Queue",
-    "poc": "Mollie Tuomisto",
-    "litsup": "Test Lit Sup",
-    "charged": false,
-    "opened": "error: invalid date \"01-01-2021\"",
-    "billatty": "Ritchie",
-    "recatty": "Holzer",
-    "dateData": [
-      { "date": "Sep 23", "dfs": 24.3, "dms": 24.5, "total": 14.1 },
-      { "date": "Jan 24", "dfs": 0.1, "dms": 93.2, "total": 99.5 },
-      { "date": "Oct 23", "dfs": 47.3, "dms": 96.3, "total": 41.9 },
-      { "date": "Jan 24", "dfs": 55.5, "dms": 13.2, "total": 39.1 }
-    ],
-    "networkData": []
-  },
-  {
-    "id": 9,
-    "client": 94791.6,
-    "matter": "0018",
-    "office": "CH",
-    "bill": "OPEN",
-    "gb": 62.68,
-    "pn": 52288.1,
-    "clientname": "Inc.",
-    "mattername": "Service Repair Solutions",
-    "activity": "Inactive",
-    "dfs": "10670_SOLER_0018_SERVI",
-    "status": "Active",
-    "poc": "Mollie Tuomisto",
-    "litsup": "Test Lit Sup",
-    "charged": true,
-    "opened": "error: invalid date \"01-01-2021\"",
-    "billatty": "Stephen L",
-    "recatty": "Holzer",
-    "dateData": [
-      { "date": "Oct 23", "dfs": 88.6, "dms": 12.9, "total": 70.5 },
-      { "date": "Jan 24", "dfs": 55.1, "dms": 19.6, "total": 46.4 },
-      { "date": "Oct 23", "dfs": 93.9, "dms": 37.0, "total": 3.0 }
-    ],
-    "networkData": [
-      {
-        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\10585\\10585",
-        "office": "CH",
-        "gb": 72,
-        "deleted": "no"
-      },
-      {
-        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\10585\\10585",
-        "office": "CH",
-        "gb": 72,
-        "deleted": "yes"
-      }
-    ]
-  },
-  {
-    "id": 10,
-    "client": 66975.2,
-    "matter": "0018",
-    "office": "NY",
+    "client": 16884.0,
+    "matter": "0043",
+    "office": "DC",
     "bill": "CLOSED",
-    "gb": 60.11,
-    "pn": 41580.3,
-    "clientname": "Solera",
-    "mattername": "Service Repair Solutions",
-    "activity": "Active",
-    "dfs": "10670_SOLER_0018_SERVI",
-    "status": "Archive Queue",
-    "poc": "Mollie Tuomisto",
+    "gb": 25.19,
+    "pn": 0.0,
+    "clientname": "IBM Corporatio",
+    "mattername": "Bowman, James, et al. vs.",
+    "activity": "Dead",
+    "dfs": "16884_IBM_C_0043_BOWMA",
+    "status": "ARCHIVE INCOMPLETE",
+    "poc": "Gary Vogt",
     "litsup": "Test Lit Sup",
     "charged": true,
-    "opened": "error: invalid date \"01-01-2021\"",
-    "billatty": "Stephen L",
-    "recatty": "Walter S",
-    "dateData": [{ "date": "Aug 23", "dfs": 72.3, "dms": 6.7, "total": 61.7 }],
+    "opened": "08-07-2000",
+    "closed": "08-07-2008",
+    "billatty": "Charfoos, Aaron D",
+    "recatty": "Charfoos, Aaron D",
+    "notes": "09/05/14: OK to archive per GVogt email  2/1/2017 OK to archive per ASidrys",
+    "dateData": [
+      { "date": "Jan 24", "dfs": 10, "dms": 20, "total": 30 },
+      { "date": "Dec 23", "dfs": 12.2, "dms": 11.0, "total": 23.2 },
+      { "date": "Nov 23", "dfs": 5.2, "dms": 2.2, "total": 7.4 },
+      { "date": "Oct 23", "dfs": 5.2, "dms": 2.5, "total": 7.7 },
+      { "date": "Sep 23", "dfs": 23.9, "dms": 11.9, "total": 12.0 },
+      { "date": "Aug 23", "dfs": 55.8, "dms": 5.0, "total": 60.8 }
+    ],
     "networkData": [
       {
-        "path": "\\ch-fps-pan-p01\\cloudfs\\ch-fps-pan-p01\\10585\\10585",
+        "path": "\\ch-cfs-svm-p11\\databases11$\\11696_CHAMB_0002_ICL",
+        "office": "NY",
+        "gb": "50",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\ch-cfs-svm-p11\\files18$\\11696_CHAMB_0002_ICL",
         "office": "CH",
-        "gb": 7,
+        "gb": "145",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\dc-cfs-svm-p11\\files13$\\11696_CHAMB_7878780002_ICL",
+        "office": "NY",
+        "gb": "55",
+        "deleted": "yes"
+      },
+      {
+        "path": "\\dc-cfs-svm-p11\\files13$\\11696_CHAMB_0002_ICL",
+        "office": "CH",
+        "gb": "50",
         "deleted": "yes"
       }
     ]

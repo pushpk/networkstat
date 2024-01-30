@@ -16,42 +16,66 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import jsonData from "../data/data.json";
 
-const options = [
+const statusOptions = [
   {
-    key: "ADM",
-    text: "ALL",
-    value: "ALL DIGITAL MATTERS",
-    title: "ALL DIGITAL MATTERS",
+    key: "Active",
+    text: "Active",
+    value: "Active",
+    title: "Active",
   },
   {
-    key: "AIP",
-    text: "ARCHIVE IN PROGRESS",
-    value: "ARCHIVE IN PROGRESS",
-    title: "ARCHIVE IN PROGRESS",
+    key: "Queue",
+    text: "Archive Queue",
+    value: "Archive Queue",
+    title: "Archive Queue",
   },
   {
-    key: "AC",
-    text: "ARCHIVE COMPLETED",
-    value: "ARCHIVE COMPLETED",
-    title: "ARCHIVE COMPLETED",
+    key: "Pending",
+    text: "Archive Pending",
+    value: "Archive Pending",
+    title: "Archive Pending",
   },
   {
-    key: "AI",
-    text: "ARCHIVE INCOMPLETE",
-    value: "ARCHIVE INCOMPLETE",
-    title: "ARCHIVE INCOMPLETE",
+    key: "Complete",
+    text: "Archive Complete",
+    value: "Archive Complete",
+    title: "Archive Complete",
   },
   {
-    key: "AR",
-    text: "ARCHIVE RESTORE",
-    value: "ARCHIVE RESTORE",
-    title: "ARCHIVE RESTORE",
+    key: "Restore",
+    text: "Archive Restore",
+    value: "Archive Restore",
+    title: "Archive Restore",
+  },
+  {
+    key: "BillingException",
+    text: "Billing Exception",
+    value: "Billing Exception",
+    title: "Billing Exception",
+  },
+  {
+    key: "Return",
+    text: "Return to Client",
+    value: "Return to Client",
+    title: "Return to Client",
+  },
+  {
+    key: "DispositionApproved",
+    text: "Disposition Approved",
+    value: "Disposition Approved",
+    title: "Disposition Approved",
+  },
+  {
+    key: "DataDispositioned",
+    text: "Data Dispositioned",
+    value: "Data Dispositioned",
+    title: "Data Dispositioned",
   },
 ];
 
-const chargedOptions = [
-  { key: "y", text: "Yes", value: "Yes" },
-  { key: "n", text: "No", value: "No" },
+const chargebackStatusOptions = [
+  { key: "y", text: "Chargeable", value: "chargeable" },
+  { key: "n", text: "No Charge", value: "nochargeable " },
 ];
 
 const ClientMatterProfile = ({ selectedId }) => {
@@ -68,19 +92,20 @@ const ClientMatterProfile = ({ selectedId }) => {
         <Form>
           <FormGroup widths="equal">
             <FormField>
-              <label>Activity</label>
-              <input value={details?.activity} placeholder="Activity" />
-            </FormField>
-            <FormField>
-              <label>DFS</label>
-              <input defaultValue={details?.dfs} placeholder="DFS" />
+              <FormSelect
+                fluid
+                label="Matter Chargeback Status"
+                options={chargebackStatusOptions}
+                placeholder="Matter Chargeback Status"
+                value={details?.status}
+              />
             </FormField>
             <FormField>
               <FormSelect
                 fluid
-                label="Status"
-                options={options}
-                placeholder="Status"
+                label="Data Status"
+                options={statusOptions}
+                placeholder="Data Status"
                 value={details?.status}
               />
             </FormField>
@@ -88,49 +113,29 @@ const ClientMatterProfile = ({ selectedId }) => {
 
           <FormGroup widths="equal">
             <FormField>
-              <label>POC</label>
-              <input value={details?.poc} placeholder="POC" />
-            </FormField>
-
-            <FormField>
-              <label>LIT SUP</label>
-              <input value={details?.litsup} placeholder="LIT SUP" />
-            </FormField>
-            <FormField>
-              <FormSelect
-                fluid
-                options={chargedOptions}
-                label="Charged"
-                placeholder="Charged"
-              />{" "}
-            </FormField>
-          </FormGroup>
-
-          <FormGroup widths="equal">
-            <FormField>
-              <label>Office</label>
+              <label>PO Status</label>
               <input
-                placeholder="Office"
+                placeholder="PO Status"
+                value={details?.bill}
                 readOnly
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+            <FormField>
+              <label>Matter Type</label>
+              <input
+                value={details?.matterType}
+                placeholder="Matter Type"
+                readOnly
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+            <FormField>
+              <label>Matter Office</label>
+              <input
                 value={details?.office}
-                className="ClientMatterProfileInputGrey"
-              />
-            </FormField>
-            <FormField>
-              <label>Opened</label>
-              <input
-                placeholder="Opened"
+                placeholder="Matter Office"
                 readOnly
-                value={details?.opened}
-                className="ClientMatterProfileInputGrey"
-              />
-            </FormField>
-            <FormField>
-              <label>Closed</label>
-              <input
-                placeholder="Closed"
-                readOnly
-                value={details?.closed}
                 className="ClientMatterProfileInputGrey"
               />
             </FormField>
@@ -138,39 +143,81 @@ const ClientMatterProfile = ({ selectedId }) => {
 
           <FormGroup widths="equal">
             <FormField>
-              <label>Bill Atty</label>
+              <label>RMA Name, Office, Status</label>
               <input
-                placeholder="Bill Atty"
-                readOnly
-                value={details?.billatty}
-                className="ClientMatterProfileInputGrey"
-              />
-            </FormField>
-            <FormField>
-              <label>Rec Atty</label>
-              <input
-                placeholder="Rec Atty"
+                placeholder="RMA Name, Office, Status"
                 readOnly
                 value={details?.recatty}
                 className="ClientMatterProfileInputGrey"
               />
             </FormField>
             <FormField>
-              <label>Billing</label>
+              <label>SCA Name, Office, Status</label>
               <input
-                placeholder="Billing"
-                value={details?.bill}
+                placeholder="SCA Atty"
                 readOnly
+                value={details?.scatty}
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+            <FormField>
+              <label>Billing Attorney, Status</label>
+              <input
+                placeholder="Billing Attorney, Status"
+                readOnly
+                value={details?.billatty}
                 className="ClientMatterProfileInputGrey"
               />
             </FormField>
           </FormGroup>
-          <FormField
-            control={TextArea}
-            label="Notes"
-            value={details?.notes}
-            placeholder="More details about client matter..."
-          />
+
+          <FormGroup widths="equal">
+            <FormField>
+              <label>Matter Open Date</label>
+              <input
+                placeholder="Matter Open Date"
+                readOnly
+                value={details?.opened}
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+            <FormField>
+              <label>Matter Close Date</label>
+              <input
+                placeholder="Matter Close Date"
+                readOnly
+                value={details?.closed}
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+            <FormField>
+              <label>Elite 3E Status</label>
+              <input
+                placeholder="Matter Close Date"
+                readOnly
+                value={details?.estatus}
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+            <FormField>
+              <label>Rollup Matter Status</label>
+              <input
+                placeholder="Rollup Matter Status"
+                readOnly
+                value={details?.rollupmatter}
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+            <FormField>
+              <label>Matter Retention Date</label>
+              <input
+                placeholder="Matter Retention Date"
+                readOnly
+                value={details?.matterRetDate}
+                className="ClientMatterProfileInputGrey"
+              />
+            </FormField>
+          </FormGroup>
 
           <Divider />
           <Button type="submit" color="green" onClick={notify}>

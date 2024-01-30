@@ -3,7 +3,7 @@ import ClientMatterGrid from "../ClientMatterGrid/ClientMatterGrid";
 import ClientMatterProfile from "../ClientMatterProfile/ClientMatterProfile";
 import ClientMatterSearch from "../ClientMatterSearch/ClientMatterSearch";
 import ClientMatterSource from "../ClientMatterSource/ClientMatterSource";
-
+import "./FixedMenuLayout.css";
 import {
   Container,
   Dropdown,
@@ -18,6 +18,17 @@ import {
 } from "semantic-ui-react";
 import jsonData from "../data/data.json";
 import { Link } from "react-router-dom";
+import {
+  Bar,
+  BarChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Legend,
+  ResponsiveContainer,
+  LabelList,
+} from "recharts";
 
 export default function FixedMenuLayout() {
   const rowHeaders = ["", "DFS", "DMS", "Total"];
@@ -27,12 +38,27 @@ export default function FixedMenuLayout() {
 
   const { loading, results, value } = "";
 
+  const renderTooltip = (payload) => {
+    console.log(payload.payload[0]?.value);
+    return (
+      <div className="custom-tooltip">
+        <p className="intro">
+          DFS : {payload.payload[0]?.value} <br />
+          DMS : {payload.payload[1]?.value}
+          <br />
+          Total : {payload.payload[0]?.value + payload.payload[1]?.value}
+        </p>
+      </div>
+    );
+  };
+
   let selectedCmDetail = {};
   if (selectedId) {
     selectedCmDetail = jsonData?.filter((item) => item?.id === selectedId)[0];
   }
 
   const columnKeys = Object.keys(jsonData[0]?.dateData[0]);
+
   return (
     <div>
       <Menu fixed="top" inverted>
@@ -112,7 +138,28 @@ export default function FixedMenuLayout() {
                 ({selectedCmDetail?.client}-{selectedCmDetail?.matter})
               </Header>
             </Segment>
+            <ClientMatterProfile selectedId={selectedId} />
             <Segment>
+              <ResponsiveContainer width="99%" height={300}>
+                <BarChart
+                  data={jsonData[selectedId - 1 ?? 0].dateData}
+                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="date" />
+                  <YAxis />
+                  <Tooltip content={renderTooltip} />
+                  <Legend />
+                  <Bar dataKey="dfs" fill="#8884d8" stackId="total">
+                    {/* <LabelList dataKey="dfs" position="middle" /> */}
+                  </Bar>
+                  <Bar dataKey="dms" fill="#82ca9d" stackId="total">
+                    {/* <LabelList dataKey="dms" position="middle" /> */}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </Segment>
+            {/* 
               <Table
                 attached="top"
                 basic
@@ -143,9 +190,7 @@ export default function FixedMenuLayout() {
                       })}
                   </Table.Row>
                 ))}
-              </Table>
-            </Segment>
-            <ClientMatterProfile selectedId={selectedId} />
+              </Table> </Segment>*/}
           </GridColumn>
         </Grid>
       </Container>

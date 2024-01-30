@@ -1,8 +1,10 @@
-#kandE-logo {
-    background-image: url(../../assets/svgs/Kirkland-Ellis-Logo.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 293px;
-    height: 25px;
-    margin: 20vh 0 3vh 0;
+
+
+  .intro{
+    background-color: black;
+    padding: 20px;
+    color: whitesmoke;
+    border-radius: 10px;
+    text-align: left;
+
   }

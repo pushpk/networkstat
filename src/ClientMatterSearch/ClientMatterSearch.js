@@ -22,28 +22,58 @@ const options = [
     title: "ALL DIGITAL MATTERS",
   },
   {
-    key: "AIP",
-    text: "ARCHIVE IN PROGRESS",
-    value: "ARCHIVE IN PROGRESS",
-    title: "ARCHIVE IN PROGRESS",
+    key: "Active",
+    text: "Active",
+    value: "Active",
+    title: "Active",
   },
   {
-    key: "AC",
-    text: "ARCHIVE COMPLETED",
-    value: "ARCHIVE COMPLETED",
-    title: "ARCHIVE COMPLETED",
+    key: "Queue",
+    text: "Archive Queue",
+    value: "Archive Queue",
+    title: "Archive Queue",
   },
   {
-    key: "AI",
-    text: "ARCHIVE INCOMPLETE",
-    value: "ARCHIVE INCOMPLETE",
-    title: "ARCHIVE INCOMPLETE",
+    key: "Pending",
+    text: "Archive Pending",
+    value: "Archive Pending",
+    title: "Archive Pending",
   },
   {
-    key: "AR",
-    text: "ARCHIVE RESTORE",
-    value: "ARCHIVE RESTORE",
-    title: "ARCHIVE RESTORE",
+    key: "Complete",
+    text: "Archive Complete",
+    value: "Archive Complete",
+    title: "Archive Complete",
+  },
+  {
+    key: "Restore",
+    text: "Archive Restore",
+    value: "Archive Restore",
+    title: "Archive Restore",
+  },
+  {
+    key: "BillingException",
+    text: "Billing Exception",
+    value: "Billing Exception",
+    title: "Billing Exception",
+  },
+  {
+    key: "Return",
+    text: "Return to Client",
+    value: "Return to Client",
+    title: "Return to Client",
+  },
+  {
+    key: "DispositionApproved",
+    text: "Disposition Approved",
+    value: "Disposition Approved",
+    title: "Disposition Approved",
+  },
+  {
+    key: "DataDispositioned",
+    text: "Data Dispositioned",
+    value: "Data Dispositioned",
+    title: "Data Dispositioned",
   },
 ];
 
@@ -80,7 +110,10 @@ export default class ClientMatterSearch extends Component {
     this.setState({ activeIndex: newIndex });
   };
 
-  resetFields = () => {};
+  resetForm = () => {
+    this.props.setFilterStatus("ALL DIGITAL MATTERS");
+    this.props.setFilterName("");
+  };
 
   render() {
     const { activeIndex } = this.state;
@@ -101,6 +134,7 @@ export default class ClientMatterSearch extends Component {
                     ? this.props.setFilterStatus("all")
                     : this.props.setFilterStatus(value?.toString())
                 }
+                value={this.props.filterStatus}
               />{" "}
             </FormField>
             <FormField>
@@ -151,7 +185,7 @@ export default class ClientMatterSearch extends Component {
 
           <div></div>
           <Divider />
-          <Button type="button" onClick={this.resetFields}>
+          <Button type="reset" onClick={this.resetForm}>
             Reset
           </Button>
         </Form>
